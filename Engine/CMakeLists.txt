@@ -53,6 +53,7 @@ add_library(myengine
   src/myengine/Exception.cpp
   src/myengine/Renderer.cpp
   src/myengine/Transform.cpp
+  src/myengine/Camera.cpp
   
   src/myengine/Core.h
   src/myengine/Entity.h
@@ -60,6 +61,8 @@ add_library(myengine
   src/myengine/Exception.h
   src/myengine/Renderer.h
   src/myengine/Transform.h
+  src/myengine/Camera.h
+  
 )
 target_link_libraries(myengine rend ${LIBSDL2} ${STATIC_LIBS})
 

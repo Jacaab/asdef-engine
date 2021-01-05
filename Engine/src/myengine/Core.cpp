@@ -35,18 +35,25 @@ std::shared_ptr<Core> Core::initialize()
   return rtn;
 }
 
+std::shared_ptr<Camera> Core::getCamera()
+{
+  return currentCamera.lock();
+}
+
 std::shared_ptr<Entity> Core::addEntity()
 {
   std::shared_ptr<Entity> rtn = std::make_shared<Entity>();
   rtn->core = self;
   rtn->self = rtn;
+  rtn->alive = true;
 
   rtn->addComponent<Transform>();
-  
+
   entities.push_back(rtn);
 
   return rtn;
 }
+
 
 void Core::start()
 {

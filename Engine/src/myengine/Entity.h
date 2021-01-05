@@ -1,3 +1,5 @@
+#include "Exception.h"
+
 #include <vector>
 #include <memory>
 
@@ -6,6 +8,8 @@ namespace myengine
 
 struct Component;
 struct Core;
+struct Exception;
+struct Transform;
 
 struct Entity
 {
@@ -24,16 +28,34 @@ struct Entity
     return rtn;
   }
 
+  template <typename T>
+  std::shared_ptr<T> getComponent()
+  {
+	  for (size_t i = 0; i < components.size(); i++)
+	  {
+		  std::shared_ptr<T> rtn = std::dynamic_pointer_cast<T>(components.at(i));
+		  if (!rtn)
+		  {
+			  continue;
+		  }
+		  
+		  return rtn;
+	  }
+  }
+  
   void tick();
   void render();
 
   std::shared_ptr<Core> getCore();
+  std::shared_ptr<Transform> getTransform();
+  void destroy();
 
 private:
   std::vector<std::shared_ptr<Component>> components;
   std::weak_ptr<Core> core;
   std::weak_ptr<Entity> self;
-
+  bool alive;
+  
 };
 
 }

@@ -8,6 +8,7 @@ namespace myengine
 
 struct Entity;
 struct Core;
+struct Transform;
 
 struct Component
 {
@@ -20,10 +21,14 @@ struct Component
 
   void render();
   virtual void onRender();
+  
+  void destroy();
+  virtual void onDestroy();
 
   std::shared_ptr<Entity> getEntity();
   std::shared_ptr<Core> getCore();
-
+  std::shared_ptr<Transform> getTransform();
+  
 private:
   std::weak_ptr<Entity> entity;
 
