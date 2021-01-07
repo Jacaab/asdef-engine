@@ -4,6 +4,8 @@
 #include "Exception.h"
 #include "Transform.h"
 
+#include <iostream>
+
 namespace myengine
 {
 
@@ -32,6 +34,9 @@ std::shared_ptr<Core> Core::initialize()
   }
 
   rtn->context = rend::Context::initialize();
+
+  rtn->resources = std::make_shared<Resources>();
+  rtn->resources->core = rtn;
 
   return rtn;
 }
@@ -84,6 +89,7 @@ void Core::start()
 
     for(size_t ei = 0; ei < entities.size(); ei++)
     {
+        std::cout << "enter forloop" << std::endl;
       entities.at(ei)->render();
     }
 

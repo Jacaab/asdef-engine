@@ -10,19 +10,18 @@ namespace myengine
 {
 	void Model::onLoad()
 	{
-		std::cout<< "Loading model: " << getPath() << std::endl;
 		mesh = getCore()->context->createMesh();
-		std::ifstream file(getPath() + ".obj");
-		
-		if(!file.is_open())
+		std::ifstream file(getPath());
+
+		if (!file.is_open())
 		{
 			throw Exception("Failed to open model file");
 		}
-		
+
 		std::string content;
 		std::string line;
-		
-		while(!file.eof())
+
+		while (!file.eof())
 		{
 			getline(file, line);
 			content += line + "\n";

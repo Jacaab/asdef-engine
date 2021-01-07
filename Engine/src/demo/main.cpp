@@ -10,9 +10,7 @@ struct Player : public Component
 	void onInitialize(int team, int type, std::string name)
 	{
 		std::shared_ptr<Renderer> r = getEntity()->addComponent<Renderer>();
-		
-		std::shared_ptr<Model> cm = getCore()->getResources()->load<Model>("curuthers");
-		std::cout << "loaded model" << std::endl;
+		std::shared_ptr<Model> cm = getCore()->getResources()->load<Model>("resources/models/curuthers/curuthers.obj");
 		r->setModel(cm);
 	}
 };
@@ -30,7 +28,7 @@ int main()
   //add kill command
   
   //camera obj
-  std::shared_ptr<Entity> camera =core->addEntity();
+  std::shared_ptr<Entity> camera = core->addEntity();
   camera->addComponent<Camera>();
   //add controller
   

@@ -14,35 +14,25 @@ namespace myengine
 		std::shared_ptr<T> load (const std::string& path)
 		{
 			std::shared_ptr<T> rtn;
-			std::cout << "rtn" << std::endl;
-
-			for(size_t i =0;i < resources.size(); i++)
+			for (size_t i = 0; i < resources.size(); i++)
 			{
-				std::cout << "forloop: " << i << std::endl;
-
-				if(path == resources.at(i)->getPath())
+				if (path == resources.at(i)->getPath())
 				{
-					std::cout << "if statement true" << std::endl;
-
 					rtn = std::dynamic_pointer_cast<T>(resources.at(i));
-					if (!rtn)
-					{
-						std::cout << "HERE" << std::endl;
+					if (!rtn) continue;
 
-						continue;
-					}
 					return rtn;
-				}	
+				}
 			}
-			
 			rtn = std::make_shared<T>();
 			rtn->core = core;
 			rtn->path = path;
 			rtn->onLoad();
 			resources.push_back(rtn);
-			
+
 			return rtn;
 		}
+		
 		
 		private:
 			friend struct myengine::Core;

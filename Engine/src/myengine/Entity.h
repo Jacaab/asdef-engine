@@ -53,11 +53,13 @@ struct Entity
   void render();
 
   std::shared_ptr<Core> getCore();
+
   std::shared_ptr<Transform> getTransform();
   void destroy();
 
 private:
   std::vector<std::shared_ptr<Component>> components;
+  std::shared_ptr<Transform> transform = std::make_shared<Transform>();
   std::weak_ptr<Core> core;
   std::weak_ptr<Entity> self;
   bool alive;

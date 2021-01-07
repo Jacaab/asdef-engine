@@ -15,12 +15,15 @@ namespace myengine
 		virtual void onLoad();
 		
 		std::string getPath();
+		std::string getName();
+		void setName(std::string _name);
 		std::shared_ptr<Core>getCore();
 		
 	private:
 		friend struct myengine::Resources;
 		
 		std::string path;
+		std::string name;
 		std::weak_ptr<Core> core;
 		
 	};

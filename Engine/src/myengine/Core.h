@@ -34,7 +34,7 @@ private:
   SDL_Window* window;
   SDL_GLContext glContext;
   std::shared_ptr<rend::Context> context;
-  std::shared_ptr<Resources> resources;
+  std::shared_ptr<Resources> resources  = std::make_shared<Resources>();
   
   std::weak_ptr<Camera> currentCamera;
   std::vector<std::weak_ptr<Camera> > cameras;

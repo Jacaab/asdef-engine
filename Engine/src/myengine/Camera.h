@@ -18,6 +18,7 @@ struct Camera : public Component
 private:
   std::shared_ptr<rend::RenderTexture> renderTexture;
 
+
 };
 
 }

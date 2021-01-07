@@ -28,7 +28,7 @@ std::shared_ptr<Core> Entity::getCore()
 
 std::shared_ptr<Transform> Entity::getTransform()
 {
-  return getComponent<Transform>();
+  return transform;
 }
 
 void Entity::destroy()
