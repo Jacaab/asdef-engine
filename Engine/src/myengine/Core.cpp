@@ -1,5 +1,6 @@
 #include "Core.h"
 #include "Entity.h"
+#include "Resources.h"
 #include "Exception.h"
 #include "Transform.h"
 
@@ -54,7 +55,10 @@ std::shared_ptr<Entity> Core::addEntity()
   return rtn;
 }
 
-
+std::shared_ptr<Resources> Core::getResources()
+{
+	return resources;
+}
 void Core::start()
 {
   bool running = true;

@@ -9,8 +9,8 @@
 #include "Transform.h"
 #include "Camera.h"
 #include "Model.h"
-#include "resource.h"
-#include "resources.h"
+#include "Resource.h"
+#include "Resources.h"
 
 #include <rend/rend.h>
 

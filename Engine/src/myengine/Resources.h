@@ -10,20 +10,28 @@ namespace myengine
 	
 	struct Resources
 	{
-		template <typname T>
+		template <typename T>
 		std::shared_ptr<T> load (const std::string& path)
 		{
 			std::shared_ptr<T> rtn;
-			
+			std::cout << "rtn" << std::endl;
+
 			for(size_t i =0;i < resources.size(); i++)
 			{
+				std::cout << "forloop: " << i << std::endl;
+
 				if(path == resources.at(i)->getPath())
 				{
-					rtn=  std::dynamic_pointer_cast<T>(resources.at(i));
-					if(!rtn)
+					std::cout << "if statement true" << std::endl;
+
+					rtn = std::dynamic_pointer_cast<T>(resources.at(i));
+					if (!rtn)
 					{
-						return rtn;
+						std::cout << "HERE" << std::endl;
+
+						continue;
 					}
+					return rtn;
 				}	
 			}
 			
@@ -44,3 +52,4 @@ namespace myengine
  	};
 	
 }
+

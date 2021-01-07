@@ -49,10 +49,6 @@ void Renderer::onInitialize()
   shader = getCore()->context->createShader();
   shader->parse(src);
 
-  shape = getCore()->context->createBuffer();
-  shape->add(rend::vec2(0, 0.5f));
-  shape->add(rend::vec2(-0.5f, -0.5f));
-  shape->add(rend::vec2(0.5f, -0.5f));
 }
 
 void Renderer::onRender()
@@ -63,7 +59,6 @@ void Renderer::onRender()
   }
   shader->setMesh(model->mesh);
   shader->setUniform("u_Projection", rend::perspective(rend::radians(45.0f), 1.0f, 0.1f, 100.0f));
-  
   shader->setUniform("u_View", getCore()->getCamera()->getView());
   shader->setUniform("u_Model", getEntity()->getTransform()->getModel());
   
@@ -78,9 +73,6 @@ void Renderer::onRender()
   {
 	  shader->render();
   }
-  
-  shader->setAttribute("a_Position", shape);
-  shader->render();
 }
 
 void Renderer::setModel(std::shared_ptr<Model> model)
