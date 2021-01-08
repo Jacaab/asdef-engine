@@ -10,7 +10,7 @@ struct Player : public Component
 	void onInitialize(int team, int type, std::string name)
 	{
 		std::shared_ptr<Renderer> r = getEntity()->addComponent<Renderer>();
-		std::shared_ptr<Model> cm = getCore()->getResources()->load<Model>("resources/models/curuthers/curuthers.obj");
+		std::shared_ptr<Model> cm = getCore()->getResources()->load<Model>("../resources/models/curuthers/curuthers.obj");
 		r->setModel(cm);
 	}
 };
@@ -30,6 +30,8 @@ int main()
   //camera obj
   std::shared_ptr<Entity> camera = core->addEntity();
   camera->addComponent<Camera>();
+  camera->getTransform()->setPosition(rend::vec3(0, 20, 0));
+  camera->getTransform()->rotate(-90, 0, 0);
   //add controller
   
   

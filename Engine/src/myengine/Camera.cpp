@@ -2,7 +2,7 @@
 #include "Core.h"
 #include "Entity.h"
 #include "Transform.h"
-
+#include <iostream>
 namespace myengine
 {
 

@@ -64,6 +64,7 @@ std::shared_ptr<Resources> Core::getResources()
 {
 	return resources;
 }
+
 void Core::start()
 {
   bool running = true;

@@ -12,12 +12,11 @@ namespace myengine
 	{
 		mesh = getCore()->context->createMesh();
 		std::ifstream file(getPath());
-
 		if (!file.is_open())
 		{
 			throw Exception("Failed to open model file");
 		}
-
+		std::cout << "load successful" << std::endl;
 		std::string content;
 		std::string line;
 
