@@ -33,10 +33,9 @@ namespace myengine
 			return rtn;
 		}
 		
-		
 		private:
 			friend struct myengine::Core;
-			
+
 			std::vector<std::shared_ptr<Resource>> resources;
 			std::weak_ptr<Core> core;
  	};

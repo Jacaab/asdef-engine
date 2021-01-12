@@ -14,7 +14,7 @@ namespace myengine
 {
 
 void Renderer::onInitialize()
-{
+{       // most of this should be moved to a shader class
   std::cout << "Initializing" << std::endl;
 
   const char* src =
@@ -55,8 +55,10 @@ void Renderer::onRender()
 {
   if(!model)
   {
-	  return;
+	  return;       // no excption as it just wouldnt render anything as apposed to not being able to run without an object
   }
+
+  // shader parameters
   shader->setMesh(model->mesh);
   shader->setUniform("u_Projection", rend::perspective(rend::radians(45.0f), 1.0f, 0.1f, 100.0f));
   shader->setUniform("u_View", getCore()->getCamera()->getView());

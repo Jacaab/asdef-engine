@@ -5,12 +5,13 @@ namespace myengine
 
 void Transform::onInitialize()
 {
-  scale = rend::vec3(1, 1, 1);
+  scale = rend::vec3(1, 1, 1);					// create a base matrix
 }
 
-rend::mat4 Transform::getModel()
+rend::mat4 Transform::getModel()				
 {
-  rend::mat4 rtn(1.0f);
+	// create a mat 4 to return
+  rend::mat4 rtn(1.0f);				
 
   rtn = rend::translate(rtn, position);
   rtn = rend::rotate(rtn, rend::radians(rotation.x), rend::vec3(1, 0, 0));
@@ -21,6 +22,7 @@ rend::mat4 Transform::getModel()
   return rtn;
 }
 
+// set initial position for translate
 void Transform::setPosition(rend::vec3 position)
 {
   this->position = position;
@@ -31,6 +33,7 @@ void Transform::rotate(float x, float y, float z)
   this->rotation += rend::vec3(x, y, z);
 }
 
+// translate from position
 void Transform::translate(float x, float y, float z)
 {
   rend::vec4 fwd = getModel() * rend::vec4(x, y, z, 0);

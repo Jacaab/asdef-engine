@@ -13,11 +13,12 @@ namespace myengine
 	{
 		virtual ~Resource();
 		virtual void onLoad();
-		
+
+		std::shared_ptr<Core>getCore();
 		std::string getPath();
 		std::string getName();
 		void setName(std::string _name);
-		std::shared_ptr<Core>getCore();
+
 		
 	private:
 		friend struct myengine::Resources;

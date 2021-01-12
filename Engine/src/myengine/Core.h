@@ -18,7 +18,7 @@ struct Core
   static std::shared_ptr<Core> initialize();
 
   std::shared_ptr<Entity> addEntity();
-  std::shared_ptr<Camera> getCamera();
+  std::shared_ptr<Camera> getCameraList();
   std::shared_ptr<Resources> getResources();
   
 
@@ -30,12 +30,14 @@ private:
   friend struct myengine::Model;
 
   std::vector<std::shared_ptr<Entity>> entities;
+  std::shared_ptr<Resources> resources = std::make_shared<Resources>();
+
+  std::shared_ptr<rend::Context> context;
   std::weak_ptr<Core> self;
+  
   SDL_Window* window;
   SDL_GLContext glContext;
-  std::shared_ptr<rend::Context> context;
-  std::shared_ptr<Resources> resources  = std::make_shared<Resources>();
-  
+
   std::weak_ptr<Camera> currentCamera;
   std::vector<std::weak_ptr<Camera> > cameras;
 

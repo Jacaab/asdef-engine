@@ -4,7 +4,8 @@
 
 namespace myengine
 {
-
+    // update function. cycle through components to call tick functions inside
+    // doesnt have a visible use yet but for future classes like controllers
 void Entity::tick()
 {
   for(size_t ci = 0; ci < components.size(); ci++)
