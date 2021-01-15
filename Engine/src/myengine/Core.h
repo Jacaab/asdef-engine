@@ -18,7 +18,7 @@ struct Core
   static std::shared_ptr<Core> initialize();
 
   std::shared_ptr<Entity> addEntity();
-  std::shared_ptr<Camera> getCameraList();
+  std::shared_ptr<Camera> getCamera();
   std::shared_ptr<Resources> getResources();
   
 

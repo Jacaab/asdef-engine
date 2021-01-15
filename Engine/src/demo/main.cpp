@@ -10,7 +10,7 @@ struct Player : public Component
 	void onInitialize(int team, int type, std::string name)
 	{
 		std::shared_ptr<Renderer> r = getEntity()->addComponent<Renderer>();	//creates an entity for the renderer to reference.		more components to be added ie player controller, ui etc
-		std::shared_ptr<Model> cm = getCore()->getResources()->load<Model>("../resources/models/curuthers/curuthers.obj");	//asign a model to render.
+		std::shared_ptr<Model> cm = getCore()->getResources()->load<Model>("resources/models/curuthers/curuthers.obj");	//asign a model to render.
 		// starts looking from which folder the program is run from(build/debug right now) so the directory will need to change between build options *needs a permenant fix*
 		r->setModel(cm);
 	}

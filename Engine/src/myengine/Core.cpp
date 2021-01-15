@@ -43,7 +43,7 @@ std::shared_ptr<Core> Core::initialize()
   return rtn;
 }
 
-std::shared_ptr<Camera> Core::getCameraList()
+std::shared_ptr<Camera> Core::getCamera()
 {
   return currentCamera.lock();
 }
